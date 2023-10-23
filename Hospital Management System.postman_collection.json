@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "39faadd0-a03e-41fd-8b18-6636359581f5",
+		"name": "Hospital Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Patient By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/patient?patientID=Patient1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"patient"
+					],
+					"query": [
+						{
+							"key": "patientID",
+							"value": "Patient1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Patient to Database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pId\" : \"\",\r\n    \"patientName\" : \"Somendra\", \r\n    \"patientGender\" : \"Male\", \r\n    \"patientAge\" : 23, \r\n    \"patientAddress\" : \"Bangalore\", \r\n    \"patientDisease\" : \"Fever\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/patient/addpatient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"patient",
+						"addpatient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient By PatientID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/patient?patientID=Patient1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"patient"
+					],
+					"query": [
+						{
+							"key": "patientID",
+							"value": "Patient1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Doctor to Database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Get Doctor by docID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/doctor?docId=Doctor1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"doctor"
+					],
+					"query": [
+						{
+							"key": "docId",
+							"value": "Doctor1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Docdetails by docID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
