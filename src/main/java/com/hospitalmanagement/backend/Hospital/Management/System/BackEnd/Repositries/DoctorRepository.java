@@ -1,22 +1,42 @@
 package com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Repositries;
 
 import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Models.Doctor;
+import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Models.Patient;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 @Repository
 public class DoctorRepository {
     private HashMap<String, Doctor> docDatabase;
+    private HashMap<String, ArrayList<Patient>> docVsPatient;
     private int overAllDoctors;
 
     public DoctorRepository(){
+        this.docVsPatient = new HashMap<>();
         this.docDatabase = new HashMap<>();
         this.overAllDoctors = 0;
     }
 
     public void addDoctorToDatabase(Doctor obj){
         this.overAllDoctors += 1;
+        docVsPatient.put(obj.getDocID(), new ArrayList<>());
         docDatabase.put(obj.getDocID(), obj);
+    }
+
+    public void assignPatientToDoctor(String docId, Patient obj){
+        ArrayList<Patient> patients = this.docVsPatient.get(docId);
+        patients.add(obj);
+    }
+
+
+    public ArrayList<Patient> getDoctorsPatients(String docID){
+        return docVsPatient.get(docID);
+    }
+
+
+    public HashMap<String, ArrayList<Patient>> getDocVsPatientDB(){
+        return docVsPatient;
     }
 
     public Doctor getDoctorByDocID(String docId){
