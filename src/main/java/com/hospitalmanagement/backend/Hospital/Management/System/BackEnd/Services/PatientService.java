@@ -40,31 +40,20 @@ public class PatientService {
 
 
     public Bill dischargePatient(String pId, String disChargeDate){
-
-
         // dd-mm-yy 25-10-23
         Patient obj = patientRepo.getPatientByID(pId);
-
         String admitDate = obj.getAdmitDate();
-
         String [] admitDateArray = admitDate.split("-"); // 16-10-23 -> [0] -> 16
-
         String [] disChargeDateArray = disChargeDate.split("-"); // [25, 10, 23] -> 25
-
         int diff = Integer.parseInt(disChargeDateArray[0]) - Integer.parseInt(admitDateArray[0]);
-
         Doctor docObj = patientRepo.getPatientsDoctor(pId);
-
         int docFee = docObj.getDocFee();
-
         int bedFee = hospitalService.getBedFee();
-
         int totalBill = diff*(docFee + bedFee);
-
         Bill billObj = new Bill(docFee, bedFee, totalBill);
-
         patientRepo.dischargePatientByPatientId(pId);
-
+        docRepo.removeParticularPatientForParticularDoctor(pId, docObj.getDocID());
+        hospitalService.deAllocatePatientsFromBed(pId);
         return billObj;
     }
 

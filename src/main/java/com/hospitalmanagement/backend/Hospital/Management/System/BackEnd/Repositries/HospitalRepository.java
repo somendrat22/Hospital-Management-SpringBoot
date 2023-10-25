@@ -30,4 +30,15 @@ public class HospitalRepository {
         return bedFee;
     }
 
+    public void deAllocatePatientFromBed(String pId){
+        for(int i  = 0; i < beds.length; i++){
+            if(beds[i] != null){
+                Patient obj = beds[i];
+                if(obj.getpId().equals(pId)){
+                    beds[i] = null;
+                }
+            }
+        }
+    }
+
 }
