@@ -5,7 +5,6 @@ import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Models.
 import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @RestController
