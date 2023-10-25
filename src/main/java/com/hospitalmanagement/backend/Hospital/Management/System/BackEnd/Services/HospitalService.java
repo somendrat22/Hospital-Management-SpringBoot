@@ -29,4 +29,8 @@ public class HospitalService {
     public Patient getPatientFromBedNumber(int bedNumber){
         return hosptalRepo.getPatientAtParticularBedNumber(bedNumber);
     }
+
+    public  int getBedFee(){
+        return hosptalRepo.getBedFee();
+    }
 }
