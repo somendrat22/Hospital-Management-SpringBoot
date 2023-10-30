@@ -4,6 +4,7 @@ import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Models.
 import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Models.Patient;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.HashMap;
 @Repository
@@ -30,6 +31,14 @@ public class DoctorRepository {
             }
         }
 
+    }
+
+    public ArrayList<Doctor> getAllDoctors(){
+        ArrayList<Doctor> allDocs = new ArrayList<>();
+        for(String docId : docDatabase.keySet()){
+            allDocs.add(docDatabase.get(docId));
+        }
+        return allDocs;
     }
 
     public void addDoctorToDatabase(Doctor obj){

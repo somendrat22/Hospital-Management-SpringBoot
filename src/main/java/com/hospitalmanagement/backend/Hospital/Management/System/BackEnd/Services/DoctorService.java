@@ -6,6 +6,7 @@ import com.hospitalmanagement.backend.Hospital.Management.System.BackEnd.Reposit
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,6 +19,10 @@ public class DoctorService {
         String docID = "Doctor" + (docRepo.getOverAllDoctors() + 1);
         obj.setDocID(docID);
         docRepo.addDoctorToDatabase(obj);
+    }
+
+    public ArrayList<Doctor> getAllDocs(){
+        return docRepo.getAllDoctors();
     }
 
 
