@@ -19,6 +19,11 @@ public class DoctorController {
         return "Doctor got added into my database";
     }
 
+     @GetMapping("/api/sayhii")
+    public Doctor getDoctorByID(){
+        return "Hello World";
+    }
+
     @GetMapping("/api/doctor")
     public Doctor getDoctorByID(@RequestParam String docId){
         return docService.getDoctorByDocID(docId);
