@@ -20,7 +20,7 @@ public class DoctorController {
     }
 
      @GetMapping("/api/sayhii")
-    public Doctor getDoctorByID(){
+    public String getDoctorByID(){
         return "Hello World";
     }
 
