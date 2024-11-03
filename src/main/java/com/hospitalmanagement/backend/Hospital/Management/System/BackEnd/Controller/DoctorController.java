@@ -24,10 +24,7 @@ public class DoctorController {
         return "Hello World";
     }
 
-    @GetMapping("/api/doctor")
-    public Doctor getDoctorByID(@RequestParam String docId){
-        return docService.getDoctorByDocID(docId);
-    }
+
 
     @PutMapping("/api/doctor")
     public String updateDoctorById(@RequestParam String docId, @RequestBody Doctor obj){
