@@ -19,8 +19,8 @@ public class DoctorController {
         return "Doctor got added into my database";
     }
 
-     @GetMapping("/api/sayhii")
-    public String getDoctorByID(){
+     @GetMapping("/api/sayhii/projects/{projectID}")
+    public String getDoctorByID(@PathVariable String projectID){
         return "Hello World";
     }
 
